@@ -10,23 +10,23 @@ function NewExpense(props) {
       ...enteredExpenseData,
       id: Math.random().toString(),
     };
-    props.onAddExpense(expenseData);
+    props.AddExpense(expenseData);
   };
-  const visibilityOn = () => {
-    setformVisibility(true);
+  const changeVisibility = () => {
+    setformVisibility((prev) => !prev);
   };
-  const visibilityOff = () => {
-    setformVisibility(false);
-  };
+
   return (
     <div className="new-expense">
       {formVisibility && (
         <ExpenseForm
           onSaveExpenseData={saveExpenseDataHandler}
-          handleVisibilityOff={visibilityOff}
+          changeVisibility={changeVisibility}
         />
       )}
-      {!formVisibility && <button onClick={visibilityOn}>Add Expenses</button>}
+      {!formVisibility && (
+        <button onClick={changeVisibility}>Add Expenses</button>
+      )}
     </div>
   );
 }

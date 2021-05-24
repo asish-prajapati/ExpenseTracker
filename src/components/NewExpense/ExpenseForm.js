@@ -40,7 +40,7 @@ function ExpenseForm(props) {
     };
     props.onSaveExpenseData(ExpenseData);
     setuserInput({ enteredTitle: "", enteredAmount: "", enteredDate: "" });
-    props.handleVisibilityOff();
+    props.changeVisibility();
   };
 
   return (
@@ -83,7 +83,7 @@ function ExpenseForm(props) {
         </div>
       </div>
       <div className="new-expense__actions">
-        <button type="button" onClick={props.handleVisibilityOff}>
+        <button type="button" onClick={props.changeVisibility}>
           Cancle
         </button>
         <button type="submit">Add Expense</button>
